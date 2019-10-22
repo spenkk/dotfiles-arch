@@ -13,7 +13,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias gitc="git clone"
 alias cdb="cd ~/BugBounty/"
-alias xclip="xclip -sel clip" alias nmap="grc nmap"
+alias xclip="xclip -sel clip"
 alias nmap="grc nmap"
 
 cwd_to_urxvt() {
