@@ -1,39 +1,43 @@
-Xft.dpi:			96
-Xft.antialias:			1
-Xft.rgba:			rgb
-Xft.hinting:			true
-Xft.hintstyle:			hintslight
-!Xft.lcdfilter:			lcddefault
-
+Xft.dpi:                    96
+Xft.antialias:              1
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+!Xft.lcdfilter:		    lcddefault
 !Blur Terminal
-URxvt*blurRadius:		10
+URxvt*blurRadius: 10
 
-URxvt.depth:			32
-URxvt.geometry:			90x30
-URxvt*transparent:		true
-URxvt*shading:			15
-URxvt.fading:			5
-URxvt.loginShell:		true
-URxvt.saveLines:		2000
-URxvt.internalBorder:		3
-URxvt.lineSpace:		0
+URxvt.depth:                32
+URxvt.geometry:             90x30
+URxvt*transparent:          true
+URxvt*shading:              15
+URxvt.fading:               5
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:           true
+URxvt.saveLines:            2000
+URxvt.internalBorder:       3
+URxvt.lineSpace:            0
 
 ! Fonts
-URxvt.allow_bold:		false
-URxvt*font:			xft:Ubuntu:pixelsize=12:style=Medium
-URxvt*boldFont:			xft:Ubuntu:pixelsize=12:style=Bold
+URxvt.allow_bold:           false
+!URxvt*font:                 xft:Liberation Mono:pixelsize=13:antialias=true:hinting=true
+!URxvt*boldFont:             xft:Liberation Mono:bold:pixelsize=13:antialias=true:hinting=true
+
+URxvt*font:		xft:Ubuntu:pixelsize=12:style=Medium
+URxvt*boldFont:		xft:Ubuntu:pixelsize=12:style=Bold
 
 ! Fix font space
-URxvt*letterSpace:		-3
+URxvt*letterSpace: -3
 
 ! Scrollbar
-URxvt.scrollStyle:		rxvt
-URxvt.scrollBar:		false
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
 
 ! Perl extensions
-URxvt.perl-ext-common:		default,cwd-spawn
-URxvt.matcher.button:		1
-URxvt*keysym.M-o:		perl:cwd-spawn
+URxvt.perl-ext-common:      default,cwd-spawn
+URxvt.matcher.button:       1
+URxvt*keysym.M-o: perl:cwd-spawn
 
 ! Cursor
 URxvt.cursorBlink:          true
@@ -43,7 +47,7 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
-!! Ctrl+Arrow to move faster
+!! Ctrl+Arrow
 URxvt.keysym.Control-Up:     \033[1;5A
 URxvt.keysym.Control-Down:   \033[1;5B
 URxvt.keysym.Control-Left:   \033[1;5D
@@ -51,11 +55,11 @@ URxvt.keysym.Control-Right:  \033[1;5C
 
 
 
-!Colors from https://terminal.sexy/
+!https://terminal.sexy/
 
 ! special
 *.foreground:   #a8a19f
-*.background:   #09090A
+*.background:   #09090a
 *.cursorColor:  #a8a19f
 
 ! black
@@ -63,12 +67,12 @@ URxvt.keysym.Control-Right:  \033[1;5C
 *.color8:       #766e6b
 
 ! red
-*.color1:       #f22c40
-*.color9:       #f22c40
+*.color1:       #ff0032
+*.color9:       #ff0032
 
 ! green
-*.color2:       #5ab738
-*.color10:      #5ab738
+*.color2:       #00ff1b
+*.color10:      #00ff1b
 
 ! yellow
 *.color3:       #d5911a
@@ -79,8 +83,8 @@ URxvt.keysym.Control-Right:  \033[1;5C
 *.color12:      #407ee7
 
 ! magenta
-*.color5:       #6666ea
-*.color13:      #6666ea
+*.color5:       #66d6ea
+*.color13:      #66d6ea
 
 ! cyan
 *.color6:       #00ad9c
