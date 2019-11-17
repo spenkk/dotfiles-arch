@@ -6,7 +6,8 @@ font pango:monospace 8
 
 # gaps
 for_window [class=".*"] border pixel 1
-gaps inner 12
+gaps inner 40
+gaps outer 3
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
