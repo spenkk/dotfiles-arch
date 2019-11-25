@@ -11,10 +11,16 @@ plugins=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+alias sstart="systemctl start"
+alias sstop="systemctl stop"
+alias srestart="systemctl restart"
+alias lt="ls -lt"
 alias gitc="git clone"
 alias cdb="cd ~/BugBounty/"
 alias xclip="xclip -sel clip"
 alias nmap="grc nmap"
+alias ccat="pygmentize -g -O style=colorful,linenos=1"
+alias myip='curl http://ipecho.net/plain'
 
 cwd_to_urxvt() {
     local update="\0033]777;cwd-spawn;path;$PWD\0007"
