@@ -11,6 +11,8 @@ plugins=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+alias p2s="python2 -m SimpleHTTPServer"
+alias p3s="python -m http.server"
 alias sstart="systemctl start"
 alias sstop="systemctl stop"
 alias srestart="systemctl restart"
