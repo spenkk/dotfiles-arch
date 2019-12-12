@@ -4,10 +4,11 @@ export ZSH="/home/arbenn/.oh-my-zsh"
 #ZSH_THEME="norm"
 #ZSH_THEME="candy"
 #ZSH_THEME="lukerandall"
-ZSH_THEME="linuxonly"
+#ZSH_THEME="linuxonly"
+#ZSH_THEME="theunraveler"
+ZSH_THEME="darkblood"
 
-
-plugins=(zsh-autosuggestions)
+plugins=(zsh-autosuggestions history python sublime sudo urltools web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -23,6 +24,7 @@ alias xclip="xclip -sel clip"
 alias nmap="grc nmap"
 alias ccat="pygmentize -g -O style=colorful,linenos=1"
 alias myip='curl http://ipecho.net/plain'
+alias cloudenum="python /home/arbenn/tools/cloud_enum/cloud_enum.py -k $1 >> $1.txt"
 
 cwd_to_urxvt() {
     local update="\0033]777;cwd-spawn;path;$PWD\0007"
