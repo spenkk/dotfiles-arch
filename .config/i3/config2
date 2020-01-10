@@ -1,13 +1,22 @@
-#$mod = ALT | $sup = WindowsKey
+#  _ _____                    __ _
+# (_)___ /    ___ ___  _ __  / _(_) __ _
+# | | |_ \   / __/ _ \| '_ \| |_| |/ _` |
+# | |___) | | (_| (_) | | | |  _| | (_| |
+# |_|____/   \___\___/|_| |_|_| |_|\__, |
+#                                  |___/
+
 set $mod Mod1
 set $sup Mod4
 
 font pango:monospace 8
 
-# gaps
+#I3 GAPS ------
 for_window [class=".*"] border pixel 1
 gaps inner 40
 gaps outer 3
+
+# Rounded Corners
+border_radius 2
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -140,6 +149,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+
+
 ################### BORDER ######################
 # Border control
 hide_edge_borders both
@@ -162,19 +174,21 @@ set $orange  #ff8700
 set $cyan    #4ec2f799
 set $acqua   #00708999
 set $wine    #72003e99
+#set $magenta #af005f99
 set $magenta #ff0000
 set $silver  #e4e4e499
 set $toxic   #8EC00099
 set $elegant #00002c30
+set $white  #ffffff
 
 # Set some nice colors      border   background text       indicator
-client.focused              $elegant $elegant   $elegant $elegant
+client.focused              $magenta $elegant  $magenta $elegant
 client.unfocused            $elegant $elegant   $cyan    $elegant
 client.focused_inactive     $acqua   $acqua     $silver  $acqua
 client.urgent               $magenta $magenta   $silver  $magenta
 client.placeholder          $magenta $magenta   $silver  $magenta
 	
-#i3blocks - not used
+#i3blocks
 #bar {   
 #    status_command i3blocks -c ~/.config/i3/i3blocks.conf
 #    colors
@@ -196,7 +210,8 @@ bar {
         status_command bumblebee-status \
         -m nic cpu memory battery brightness amixer time date \
         -p time.format="%I:%M %p" date.format="%a, %b %d %Y" nic.exclude=lo,vmnet \
-        -t greyish-powerline
+	-t greyish-powerline
+#        -t iceberg-rainbow
 
     	colors
 	{
@@ -210,17 +225,25 @@ bar {
 
 }
 
-# Wallpaper
-exec --no-startup-id feh --bg-scale ~/wallpapers/cyber.jpg
+#Wallpaper
+#exec --no-startup-id feh --bg-center ~/wallpapers/11.png
+exec --no-startup-id feh --bg-scale ~/wallpapers/23-2.jpg
+#exec --no-startup-id feh --bg-center ~/Pictures/novus_logo_s.png
 
-# Screenshot
+#Screenshot
 bindsym Print exec --no-startup-id scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
 bindsym --release Ctrl+Print exec scrot -s -e 'mv $f ~/Pictures/'
 
-# ranger
+#Transparency Compton
+#exec_always --no-startup-id (nohup compton &)
+
+#Exec polybar
+#exec_always --no-startup-id /home/arbenn/.config/polybar/launch.sh &
+
+#ranger
 bindsym $mod+Ctrl+r exec --no-startup-id urxvt -e ranger
 
-# i3-lock
+#i3-lock
 bindsym $sup+l exec i3lock-fancy -t "Locked"
 
 # Pulse Audio controls
@@ -232,5 +255,5 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 #bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
