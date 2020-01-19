@@ -55,41 +55,42 @@ URxvt.keysym.Control-Right:  \033[1;5C
 
 
 ! special
-*.foreground:   #d0d6ce
-*.background:   #090908
-*.cursorColor:  #d0d6ce
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
 
 ! black
-*.color0:       #101110
-*.color8:       #56a5da
+*.color0:       #000000
+*.color8:       #38372c
 
 ! red
-*.color1:       #1a1b1a
-*.color9:       #5294c2
+*.color1:       #571dc2
+*.color9:       #7c54b0
 
 ! green
-*.color2:       #2b2c2a
-*.color10:      #7dd048
+*.color2:       #14db49
+*.color10:      #a2e655
 
 ! yellow
-*.color3:       #424542
-*.color11:      #76ac5a
+*.color3:       #403d70
+*.color11:      #9c6f59
 
 ! blue
-*.color4:       #60635f
-*.color12:      #79b25c
+*.color4:       #385a70
+*.color12:      #323f5c
 
 ! magenta
-*.color5:       #848883
-*.color13:      #62baae
+*.color5:       #384894
+*.color13:      #5e6c99
 
 ! cyan
-*.color6:       #aeb3ac
-*.color14:      #45a1d8
+*.color6:       #4f3a5e
+*.color14:      #667d77
 
 ! white
-*.color7:       #dee4db
-*.color15:      #c97bdc
+*.color7:       #999999
+*.color15:      #ffffff
+
 
 
 
