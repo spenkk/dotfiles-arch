@@ -3,7 +3,8 @@
 ! ------------------------------------------------------------------------------
 
 ! General
-rofi.font:                SF Pro Display Medium 15
+rofi.font:                Ubuntu Regular 13
+
 rofi.hide-scrollbar:      true
 rofi.terminal:			  urxvt
 
@@ -24,11 +25,11 @@ rofi.fullscreen:         false
 ! ------------------------------------------------------------------------------
 
 !		   'background', 'border',	 'separator'
-rofi.color-window: #000000,      #4c007f,	  #4c007f
+rofi.color-window: #0e1210,      #46c08c,	  #0e1210
 
 
 ! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
-rofi.color-normal: #000000,  #f1f1f1,  #000000,  #000000,  #4c007f
+rofi.color-normal: #0e1210,  #f1f1f1,  #0e1210,  #a49afc,  #4c007f
 rofi.color-urgent: #4c007f,  #f1f1f1,  #1a1a1a,  #3498db,  #4c007f
 rofi.color-active: #4c007f,  #4c007f,  #57c7ff,  #3498db,  #4c007f
 
