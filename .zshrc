@@ -25,6 +25,10 @@ alias nmap="grc nmap"
 alias ccat="pygmentize -g -O style=colorful,linenos=1"
 alias myip='curl http://ipecho.net/plain'
 alias cloudenum="python /home/arbenn/tools/cloud_enum/cloud_enum.py -k $1 >> $1.txt"
+alias wbu="waybackurls"
+alias smbmap="python2 /usr/bin/smbmap"
+alias ipaddr="ifconfig wlp1s0 | grep -w inet | awk '{print \$2}'"
+
 
 cwd_to_urxvt() {
     local update="\0033]777;cwd-spawn;path;$PWD\0007"
