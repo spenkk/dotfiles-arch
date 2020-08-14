@@ -1,13 +1,22 @@
-#$mod = ALT | $sup = WindowsKey
+#  _ _____                    __ _
+# (_)___ /    ___ ___  _ __  / _(_) __ _
+# | | |_ \   / __/ _ \| '_ \| |_| |/ _` |
+# | |___) | | (_| (_) | | | |  _| | (_| |
+# |_|____/   \___\___/|_| |_|_| |_|\__, |
+#                                  |___/
+
 set $mod Mod1
 set $sup Mod4
 
-font pango:monospace 8
+font pango:MesloLGS NF 8
 
-# gaps
+#I3 GAPS ------
 for_window [class=".*"] border pixel 1
 gaps inner 40
 gaps outer 3
+
+# Rounded Corners
+border_radius 2
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -79,9 +88,10 @@ bindsym $mod+a focus parent
 # Name the workspaces
 set $workspace1 "1  "
 set $workspace2 "2  "
-set $workspace3 "3  "
-set $workspace4 "4  "
+set $workspace3 "3  "
+set $workspace4 "4  "
 set $workspace5 "5  "
+set $workspace6 "6  "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -89,7 +99,7 @@ bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3 
 bindsym $mod+4 workspace $workspace4 
 bindsym $mod+5 workspace $workspace5 
-bindsym $mod+6 workspace 6
+bindsym $mod+6 workspace $workspace6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 91
@@ -140,6 +150,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
 ################### BORDER ######################
 # Border control
 hide_edge_borders both
@@ -158,79 +169,74 @@ set $cyan0   #4ec2f7
 set $silver0 #e4e4e4
 set $orange  #ff8700
 
+
 # RGBA
 set $cyan    #4ec2f799
 set $acqua   #00708999
 set $wine    #72003e99
+#set $magenta #af005f99
 set $magenta #ff0000
 set $silver  #e4e4e499
 set $toxic   #8EC00099
 set $elegant #00002c30
+set $white  #ffffff
+set $pink #f1f1f1
+set $purple #6d00ff
 
 # Set some nice colors      border   background text       indicator
-client.focused              $elegant $elegant   $elegant $elegant
-client.unfocused            $elegant $elegant   $cyan    $elegant
+client.focused              $purple $elegant  $pink $elegant
+client.unfocused            $elegant $elegant   $pink    $elegant
 client.focused_inactive     $acqua   $acqua     $silver  $acqua
 client.urgent               $magenta $magenta   $silver  $magenta
 client.placeholder          $magenta $magenta   $silver  $magenta
 	
-#i3blocks - not used
-#bar {   
-#    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#    colors
-#    {
-#                        # Border    # Background    # Text
-#        focused_workspace   $silver0  $silver0  $elegant
-#        active_workspace    $elegant  $elegant  $orange
-#        inactive_workspace  $elegant  $elegant  $cyan0
-#        urgent_workspace    $acqua    $acqua    $silver0
-#        background          $elegant
-#    }
-#}
-
 bar {	
         height 20
         font pango:Hack 9
         position bottom
         tray_output none
         status_command bumblebee-status \
-        -m nic cpu memory battery brightness amixer time date \
-        -p time.format="%I:%M %p" date.format="%a, %b %d %Y" nic.exclude=lo,vmnet \
-        -t greyish-powerline
+        -m nic cpu memory battery brightness amixer datetime \
+        -p time.format="%I:%M %p" date.format="%a, %b %d %Y" nic.exclude="br-0c19cad6e35c,br-130749b295c0,br-70d3e87f1e8a,lo,br-ede16dea8fae,br-ffe2b7c13f08"  memory.format="{used}/{total}" \
+	-t wal-powerline
+#	-t iceberg-powerline
 
     	colors
 	{
                         # Border    # Background    # Text
         focused_workspace   $silver0  $silver0  $elegant
         active_workspace    $elegant  $elegant  $orange
-        inactive_workspace  $elegant  $elegant  $cyan0
+        inactive_workspace  $elegant  $elegant  $white
         urgent_workspace    $acqua    $acqua    $silver0
         background          $elegant
 	}
 
 }
 
-# Wallpaper
-exec --no-startup-id feh --bg-scale ~/wallpapers/cyber.jpg
+#Wallpaper
+exec --no-startup-id feh --bg-scale ~/wallpapers/kali-wallpapers/34.jpg
 
-# Screenshot
+#Screenshot
 bindsym Print exec --no-startup-id scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
 bindsym --release Ctrl+Print exec scrot -s -e 'mv $f ~/Pictures/'
 
-# ranger
+#FixTime
+exec_always --no-startup-id /usr/bin/fixtime
+
+#ranger
 bindsym $mod+Ctrl+r exec --no-startup-id urxvt -e ranger
 
-# i3-lock
-bindsym $sup+l exec i3lock-fancy -t "Locked"
+#i3-lockfancy
+#bindsym $sup+l exec i3lock-fancy -t "Locked" -p
+
+#i3lock-color
+bindsym $sup+l exec lock-color
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-#bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-#bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-#bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
