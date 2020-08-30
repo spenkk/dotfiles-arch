@@ -61,8 +61,8 @@ URxvt.keysym.Control-Right:  \033[1;5C
 *.foreground:   #f8f8f2
 !*.background:   #272822
 !*.background:	#000000 Dark Gray
-!*.background:	#161B1D Dark Green
-*.background:	#190E1E
+*.background:	#161B1D
+!*.background:	#190E1E Dark Purple
 *.cursorColor:  #f8f8f2
 
 ! black
