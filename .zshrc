@@ -34,7 +34,7 @@ alias cyclic="python2 /usr/bin/cyclic"
 alias cat="bat --style=grid"
 
 run_cloudenum() {
-    python /home/arbenn/tools/cloud_enum/cloud_enum.py -k $1 >> $1.txt
+    python /home/arbenn/tools/cloud_enum/cloud_enum.py -k $1 -k $2 -l $1.txt --disable-azure
 }
 
 run_ffuf() {
