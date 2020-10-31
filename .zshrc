@@ -1,14 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export ZSH="/home/arbenn/.oh-my-zsh"
 
-#ZSH_THEME="random"
-#ZSH_THEME="norm"
-#ZSH_THEME="candy"
-#ZSH_THEME="lukerandall"
-#ZSH_THEME="linuxonly"
-#ZSH_THEME="theunraveler"
-#ZSH_THEME="darkblood"
-#ZSH_THEME="adben"
-#ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(zsh-autosuggestions history python sublime sudo urltools web-search)
@@ -28,7 +24,6 @@ alias nmap="grc nmap"
 alias pip="/usr/bin/pip"
 alias pip2="/usr/bin/pip2"
 alias myip="curl http://ipecho.net/plain"
-alias smbmap="python2 /usr/bin/smbmap"
 alias ipaddr="ifconfig wlp1s0 | grep -w inet | awk '{print \$2}'"
 alias cyclic="python2 /usr/bin/cyclic"
 alias cat="bat --style=grid"
@@ -50,7 +45,7 @@ run_mobsf() {
 }
 
 github_subdomains() {
-    python /home/arbenn/tools/github-search/github-subdomains.py -t """[TOKEN]""" -d $1
+    github-subdomains -t [TOKEN] -d $1
 }
 
 blind_xxe() {
